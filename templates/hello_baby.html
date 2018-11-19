@@ -1,0 +1,41 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Прогулочная коляска Hello Baby</title>
+	<link rel="stylesheet" href={% static '/css/style2.css' %}>
+</head>
+<body>
+	<header>
+		<div class="header">
+	<a href={% url 'index' %}><img class="logo" src={% static '/img/logo.jpg' %} alt=""></a>
+   <ul class="menu">
+       <li>Меню</li>
+       <li><a href={% url 'index' %}>Главная</a></li>
+       <li><a href={% url 'catalog' %}>Каталог</a></li>
+       <li><a href={% url 'contacts' %}>Контакты</a></li>
+   </ul>
+   </div>
+        <hr />
+	</header>
+        <p><a href={% url 'hello_baby_big' %}><img class="goods" src={% static '/img/hello_baby.jpg' %} alt="Коляска Hello Baby"></a>
+	<p class="short_decr">Коляска-трость</p>
+	    <h3 class="goods">Описание товара</h3>
+		<ul class="description">
+			<li>Вес - 6 кг.</li>
+			<li>Предназначена для детей от рождения до 3 лет.</li>
+			<li>Очень большой капюшон со смотровым окошком</li>
+			<li>Передние поворотные колеса с фиксацией. Стопы на задних колесах.</li>
+			<li>В комплекте летний коврик, чехол на ножки, бампер.</li>
+		</ul>
+    <footer>
+		<hr />
+		<div class="footer">
+		<p>&copy  Eventus Group 2018</p>
+		<p>Все права защищены</p>
+        </div>
+	</footer>
+    </body>
+</html>

@@ -1,0 +1,16 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Teknum</title>
+    <link rel="stylesheet" href={% static '/css/style2.css' %}>
+</head>
+<body>
+    <div>
+        <img src={% static '/img/teknum.jpg' %} alt="Teknum">
+    </div>
+    <a href={% url 'catalog' %}>Вернуться в каталог товаров</a>
+</body>
+</html>
