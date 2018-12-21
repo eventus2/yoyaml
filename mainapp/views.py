@@ -33,24 +33,6 @@ def products(request, pk=None):
 def contacts(request):
     return render(request, 'contacts.html')
 
-def hello_baby(request):
-    return render(request, 'hello_baby.html')
-
-def teknum(request):
-    return render(request, 'teknum.html')
-
-def yoya_kingmoon(request):
-    return render(request, 'yoya_kingmoon.html')
-
-def hello_baby_big(request):
-    return render(request, 'hello_baby_big.html')
-
-def teknum_big(request):
-    return render(request, 'teknum_big.html')
-
-def yoya_kingmoon_big(request):
-    return render(request, 'yoya_kingmoon_big.html')
-
 def product_detail(request, pk):
     product = get_object_or_404(Product, pk=pk)
     return render(request, 'product_detail.html', {'product': product})
