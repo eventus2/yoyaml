@@ -14,6 +14,6 @@
     <p>{{ product.description }}</p>
     <p> Цена: {{ product.price }} руб.</p>
     <a href="#"> <button type="button" class ="btn btn-primary">Добавить в корзину</button></a>
-    <p></p><a href={% url 'products' %}>Вернуться в каталог</a></p>
+    <p></p><a href={% url 'products' pk=0 %}>Вернуться в каталог</a></p>
 
 {% endblock %}

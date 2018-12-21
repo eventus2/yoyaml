@@ -7,20 +7,21 @@ def index(request):
     return render(request, 'index.html')
 
 def products(request, pk=None):
+   print(pk)
    links_menu = Category.objects.all()
    if pk:
        if pk == '0':
            products = Product.objects.all()
            category = {'name':'Все категории'}
        else:
-           category = get_object_or_404(Categoty, pk=pk)
-           products = Product.object.filter(category__pk=pk)
+           category = get_object_or_404(Category, pk=pk)
+           products = Product.objects.filter(category__pk=pk)
        content = {
             'links_menu':links_menu,
             'category': category,
             'products': products
         }
-       return render(request, 'product_list.html', content)
+       return render(request, 'catalog.html', content)
    products = Product.objects.all()
 
    content ={
