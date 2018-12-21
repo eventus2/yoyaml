@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}
+
+{% endblock %}
+
+{% load static %}
+
+
+{% block content %}
+    <p><img class="catalog" src="/media/{{ product.image }}" alt="{{ product.name }}"></p>
+    <p>{{ product.name }}</p>
+    <p>{{ product.category }}</p>
+    <p>{{ product.description }}</p>
+    <p> Цена: {{ product.price }} руб.</p>
+    <a href="#"> <button type="button" class ="btn btn-primary">Добавить в корзину</button></a>
+    <p></p><a href={% url 'products' %}>Вернуться в каталог</a></p>
+
+{% endblock %}

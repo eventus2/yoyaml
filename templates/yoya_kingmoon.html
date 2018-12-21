@@ -1,49 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Прогулочная коляска Yoya KingMoon
+{% endblock %}
+
+
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Прогулочная коляска Yoya KingMoon</title>
-	<link rel="stylesheet" href={% static '/css/style2.css' %}>
-</head>
-<body>
-	<header>
-		<div class="header">
-	<a href={% url 'index' %}><img class="logo" src={% static '/img/logo.jpg' %} alt=""></a>
-   <ul class="menu">
-       <li>Меню</li>
-       <li><a href={% url 'index' %}>Главная</a></li>
-       <li><a href={% url 'catalog' %}>Каталог</a></li>
-       <li><a href={% url 'contacts' %}>Контакты</a></li>
-   </ul>
-   </div>
-        <hr />
-	</header>
-    
-    <p><a href={% url 'yoya_kingmoon_big' %}><img class="goods" src={% static '/img/yoya_kingmoon.jpg' %} alt="Коляска Yoya KingMoon"></a>
+{% block content %}
+    {% load static %}
+    <p><a href={% url 'yoya_kingmoon_big' %}><img class="goods" src={% static '/img/yoya_kingmoon.jpg' %} alt="Коляска
+                                                  Yoya KingMoon"></a>
     <p class="short_decr">Компактная прогулочная коляска</p>
-    <ul>
-			<li class="description">Резиновые колеса с амортизацией на передней оси</li>
-			<li class="description">Новый регулируемый бампер, адаптированный под использование подножки</li>
-			<li class="description">Вес: 5,8 кг</li>
-			<li class="description">Возраст ребенка: от 0 месяцев до 3-х лет</li>
-			<li class="description">Максимальная нагрузка: 25 кг</li>
-			<li class="description">Спинка опускается до 165 градусов</li>
-			<li class="description">Мгновенное складывание и раскладывание одной рукой, второй вы сможете держать ребенка</li>
-			<li class="description">Компактное хранение и возможность взять коляску даже в салон самолета, размер 45x55x19см</li>
-			<li class="description">Корзина для покупок под сиденьем</li>
-			<li class="description">Пятиточечные ремни безопасности</li>
-			<li class="description">В комплекте подстаканник, москитная сетка, летний коврик, чехол</li>
-			<li class="description">Цвет - розовый меланж (стираный лен)</li>
+    <ul class="description">
+        <li>Резиновые колеса с амортизацией на передней оси</li>
+        <li>Новый регулируемый бампер, адаптированный под использование подножки</li>
+        <li>Вес: 5,8 кг</li>
+        <li>Возраст ребенка: от 0 месяцев до 3-х лет</li>
+        <li>Максимальная нагрузка: 25 кг</li>
+        <li>Спинка опускается до 165 градусов</li>
+        <li>Мгновенное складывание и раскладывание одной рукой, второй вы сможете держать ребенка</li>
+        <li>Компактное хранение и возможность взять коляску даже в салон самолета, размер 45x55x19см</li>
+        <li>Корзина для покупок под сиденьем</li>
+        <li>Пятиточечные ремни безопасности</li>
+        <li>В комплекте подстаканник, москитная сетка, летний коврик, чехол</li>
+        <li>Цвет - розовый меланж (стираный лен)</li>
+    </ul>
 
-		</ul>
-	</body>
-	<footer>
-		<hr />
-		<div class="footer">
-		<p>&copy  Eventus Group 2018</p>
-		<p>Все права защищены</p>
-        </div>
-	</footer>
-</html>
+{% endblock %}

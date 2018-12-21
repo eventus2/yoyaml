@@ -14,13 +14,17 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.template.context_processors import static
 from django.urls import path
 import mainapp.views as mainapp
+# import authapp.views as authapp
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', mainapp.index, name='index'),
-    path('catalog/', mainapp.catalog, name="catalog"),
+    path('products/', mainapp.products, name='products'),
     path('contacts/', mainapp.contacts, name="contacts"),
     path('hello_baby/', mainapp.hello_baby, name="hello_baby"),
     path('teknum/', mainapp.teknum, name="teknum"),
@@ -28,4 +32,12 @@ urlpatterns = [
     path('hello_baby_big/', mainapp.hello_baby_big, name='hello_baby_big'),
     path('teknum_big/', mainapp.teknum_big, name ='teknum_big'),
     path('yoya_kingmoon_big/', mainapp.yoya_kingmoon_big, name='yoya_kingmoon_big'),
+    path('product_detail/<int:pk>/', mainapp.product_detail, name='product_detail')
+    # path('login/',authapp.login, name='login'),
+    # path('logout/', authapp.logout, name='logout'),
+    # path('register/', authapp.register, name='register'),
+    # path('edit/', authapp.edit, name='edit'),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

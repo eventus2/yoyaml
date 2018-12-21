@@ -1,23 +1,10 @@
-{% load static %}
+{% extends "base.html" %}
 
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-	<meta charset="UTF-8">
-	<title>Наши контакты</title>
-	<link rel="stylesheet" href={% static '/css/style2.css' %}>
-</head>
-<body>
-	<header>
-	<div class="header">
-	<a href={% url 'index' %}><img class="logo" src={% static '/img/logo.jpg' %} alt=""></a>
-       <ul class="menu">
-       <li>Меню</li>
-       <li><a href={%  url 'index' %}>Главная</a></li>
-       <li><a href={% url 'catalog' %}>Каталог</a></li>
-       <li><a href={% url 'contacts'%}>Контакты</a></li>
-       </ul>
-   </div>
+{% block title %}
+Наши контакты
+{% endblock %}
+
+{% block content %}
     <hr />
 	</header>
 	<h3 class="goods" >Наши контакты</h3>
@@ -43,12 +30,4 @@
     <p><textarea class="message" placeholder="Ваше сообщение"></textarea></p>
     <p><button>ОТПРАВИТЬ СООБЩЕНИЕ</button></p>
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2390.3119518344406!2d50.110138351370956!3d53.19432137984897!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x41661e6bd1142023%3A0x895acbd0f20d8d98!2z0YPQuy4g0JvQtdC90LjQvdGB0LrQsNGPLCAxNDcsINCh0LDQvNCw0YDQsCwg0KHQsNC80LDRgNGB0LrQsNGPINC-0LHQuy4sIDQ0MzA0MQ!5e0!3m2!1sru!2sru!4v1532493762716" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-	<footer>
-		<hr />
-		<div class="footer">
-		<p>&copy  Eventus Group 2018</p>
-		<p>Все права защищены</p>
-        </div>
-	</footer>
-</body>
-</html>
+{% endblock %}

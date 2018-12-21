@@ -1,39 +1,29 @@
-{% load static %}
+{% extends "base.html" %}
 
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-	<meta charset="UTF-8">
-	<title>Catalog</title>
-	<link rel="stylesheet" href={% static '/css/style2.css' %}>
-</head>
-<body>
-	<header>
-		<div class="header">
-		<a href={% url 'index' %}><img class="logo" src={% static '/img/logo.jpg' %} alt=""></a>
-   <ul class="menu">
-       <li>Меню</li>
-       <li><a href={% url 'index' %}>Главная</a></li>
-       <li><a href={% url 'catalog' %}>Каталог</a></li>
-       <li><a href={% url 'contacts' %}>Контакты</a></li>
-   </ul>
-   </div>
-   </div>
+{% block title %}
+Каталог товаров
+{% endblock %}
+
+{% load static %}
+        {% block content %}
+
     <hr />
 	</header>
 	<h3 class="goods">Каталог товаров</h3>
-    <p><img class="catalog" src={% static '/img/teknum.jpg' %} alt="Коляска Teknum">
-    <a href={% url 'teknum' %}>Коляска Teknum</a>
-<p><img class="catalog" src={% static '/img/yoya_kingmoon.jpg' %} alt="Коляска Yoya KingMoon">
-    <a href={% url 'yoya_kingmoon' %}>Коляска Yoya KingMoon</a>
-<p><img class="catalog" src={% static '/img/hello_baby.jpg' %} alt="Коляска Hello Baby">
-    <a href={% url 'hello_baby' %}>Коляска Hello Baby</a>
-	<footer>
-		<hr />
-		<div class="footer">
-		<p>&copy  Eventus Group 2018</p>
-		<p>Все права защищены</p>
-        </div>
-	</footer>
-</body>
-</html>
+        <ul class="nav justify-content-center">
+            {% for link in links_menu %}
+            <li class="nav-item">
+                <a class="nav-link" href="#">{{ link.name }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+            {% for product in products%}
+                <div>
+                    <p><img class="catalog" src="/media/{{ product.image }}" alt="{{ product.name }}"></p>
+                    <a href={% url 'product_detail' product.id %}>{{ product.name }}</a>
+                    <p>{{ product.short_decription }}</p>
+                    <p>Цена: {{ product.price }} руб.</p>
+                    <a href="#"> <button type="button" class ="btn btn-primary">Добавить в корзину</button></a>
+                </div>
+            {% endfor %}
+{% endblock %}

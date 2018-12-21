@@ -1,16 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}
+Прогулочная коляска Hello Baby
+{% endblock %}
+
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Hello Baby</title>
-    <link rel="stylesheet" href={% static '/css/style2.css' %}>
-</head>
-<body>
+{% block content %}
     <div>
         <img src={% static '/img/hello_baby.jpg' %} alt="Hello Baby">
     </div>
     <a href={% url 'catalog' %}>Вернуться в каталог товаров</a>
-</body>
-</html>
+{% endblock %}
