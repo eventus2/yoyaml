@@ -6,28 +6,27 @@
 
 {% block content %}
     <hr />
-	</header>
 	<h3 class="goods" >Наши контакты</h3>
         <p>ООО " Эвентус Групп"
         <br>
-    <h3 class="goods">Адрес</h2>
+    <h2 class="goods">Адрес</h2>
         443041, г. Самара
         <br>
-        ул. Ленинская, 147-42
+        ул. Ленинская, 147
         <br>
         8 960 827 50 00
         <br>
         <a href="mailto:shop@yoya.ml">shop@yoya.ml</a>
         </p>
         <h3 class="goods">Напишите нам</h3>
-        <p><b>Имя:</b><br>
-        <input class="message_input" type="text" placeholder="Ваше имя"></p>
-        <p><b>E-mail:</b><br>
-        <input class="email" type="text" placeholder="E-mail"></p>
-        <p><b>Тема:</b><br>
-        <input class="message_input" type="text" placeholder="Тема сообщения"></p>
-         <p><b>Сообщение:</b><br>
-    <p><textarea class="message" placeholder="Ваше сообщение"></textarea></p>
-    <p><button>ОТПРАВИТЬ СООБЩЕНИЕ</button></p>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2390.3119518344406!2d50.110138351370956!3d53.19432137984897!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x41661e6bd1142023%3A0x895acbd0f20d8d98!2z0YPQuy4g0JvQtdC90LjQvdGB0LrQsNGPLCAxNDcsINCh0LDQvNCw0YDQsCwg0KHQsNC80LDRgNGB0LrQsNGPINC-0LHQuy4sIDQ0MzA0MQ!5e0!3m2!1sru!2sru!4v1532493762716" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+        <div>
+        <form class="form-horizontal" method="post">
+        {% csrf_token %}
+            {{  form.as_p }}
+            <input class="form-control-feedback" type="submit" value="ОТПРАВИТЬ СООБЩЕНИЕ">
+        </form>
+        </div>
+        <div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2390.3119518344406!2d50.110138351370956!3d53.19432137984897!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x41661e6bd1142023%3A0x895acbd0f20d8d98!2z0YPQuy4g0JvQtdC90LjQvdGB0LrQsNGPLCAxNDcsINCh0LDQvNCw0YDQsCwg0KHQsNC80LDRgNGB0LrQsNGPINC-0LHQuy4sIDQ0MzA0MQ!5e0!3m2!1sru!2sru!4v1532493762716" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
 {% endblock %}

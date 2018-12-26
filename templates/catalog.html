@@ -5,8 +5,7 @@
 {% endblock %}
 
 {% load static %}
-        {% block content %}
-
+{% block content %}
     <hr />
 	</header>
 	<h3 class="goods">Каталог товаров</h3>
@@ -23,7 +22,7 @@
                     <a href={% url 'product_detail' product.id %}>{{ product.name }}</a>
                     <p>{{ product.short_decription }}</p>
                     <p>Цена: {{ product.price }} руб.</p>
-                    <a href="#"> <button type="button" class ="btn btn-primary">Добавить в корзину</button></a>
+                    <a href="{% url 'basket:add' product.pk %}"> <button type="button" class ="btn btn-primary">Добавить в корзину</button></a>
                 </div>
             {% endfor %}
 {% endblock %}
