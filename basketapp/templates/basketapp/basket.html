@@ -1,33 +1,61 @@
-{% extends 'basketapp/base.html' %}
+<!DOCTYPE html>
 {% load staticfiles %}
-
-
-{% block content %}
-    <div class="basket_list">
-        {% for item in basket_items %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Ваша корзина</title>
+    {% block css %}
+{#        <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">#}
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <link rel="stylesheet" href={% static 'css/basket.css' %}>
+    {% endblock %}
+    {% block js %}
+        <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+        <script src="{% static 'js/basket_scripts.js' %}"></script>
+    {% endblock %}
+</head>
+<body>
+    <div class="container">
+    <div class="basket_container">
+        <div class="basket_title">
+            <p>Ваша корзина, {% if user.first_name %}{{ user.first_name|title}}{% else %}Пользователь{% endif %}</p>
+        </div>
+        <div class="basket_list">
+            {% for item in basket_items %}
             <div class="basket_record">
-                <img src="{{ item.product.image.url }}" alt="{{ item.product.short_desc }}">
-                <span class="category_name">{{ item.product.category.name }}</span> 
-                <span class="product_name">{{ item.product.name }}</span>
-                <span class="product_price">{{ item.product.price }}&nbspруб</span>
-                <input type="number" name="{{ item.pk }}" min="0" value="{{ item.quantity }}">
-                <span class="product_cost">{{ item.cost }}&nbspруб</span>
-{#                <button class="btn btn-round">#}
-                    <a href="{% url 'basket:remove' item.pk %}" class="">
-                        удалить
-                    </a>
-{#                </button>#}
+                <div class="basket_product_image">
+                    <img src="{{ item.product.image.url }}" alt="{{ item.product.short_desc }}">
+                </div>
+                <div class="basket_product_category">
+                    <p>{{ item.product.category.name }}</p>
+                </div>
+                <div class="basket_product_name">
+                    <p>{{ item.product.name }}</p>
+                </div>
+                <div class="basket_product_quantity">
+                    <input type="number" name="{{ item.pk }}" min="0" value="{{ item.quantity }}">
+                </div>
+                <div class="basket_product_price">
+                    <p>{{ item.product.price }}&nbspруб.</p>
+                </div>
+                <div class="basket_product_remove_button">
+                    <button class="btn btn-outline-danger" onclick="location.href='{% url 'basket:remove' item.pk %}'">УДАЛИТЬ</button>
+                </div>
+            {% endfor %}
             </div>
-        {% endfor %}
-        
-        {% if basket_items %}
+        </div>
+        <hr>
+        <div class="basket_footer">
             <div class="basket_summary">
-                В корзине {{ basket_items.0.total_quantity }} товаров общей стоимостью
-                {{ basket_items.0.total_cost }} руб
+               <p>В корзине {{ basket_items.0.total_quantity }} товаров. Общей стоимостью {{ basket_items.0.total_cost }} руб.</p>
             </div>
-        {% endif %}
-        
-        <button class="btn btn-round" onclick="location.href='{% url 'index' %}'">На главную</button>
-
+            <div class="basket_checkout">
+                <button class="btn btn-primary btn-lg">ОФОРМИТЬ ЗАКАЗ</button>
+            </div>
+        </div>
+        <div class="return_to_main_button">
+            <button class="btn btn-secondary" onclick="location.href='{% url 'index' %}'">На главную</button>
+        </div>
     </div>
-{% endblock %}
+</body>
+</html>
