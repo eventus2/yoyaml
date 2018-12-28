@@ -26,48 +26,49 @@ window.onload = function () {
     */
     
     // добавляем ajax-обработчик для обновления количества товара
-    $('.basket_list').on('click', 'input[type="number"]', function (event) {
+    $('.basket_product_quantity').on('click', 'input[type="number"]', function (event) {
 
-        //console.log('Привет');
-        //alert('ПРивет');
+        console.log('Привет');
+        alert('ПРивет');
         var target_href = event.target;
 
         if (target_href) {
         // Пример отправки ajax запроса
             $.ajax({
-                url: "/basket/edit/" + target_href.name + "/" + target_href.value + "/",
+                url: "/basket/edit/" + target_href.name + "/" + target_href.value + "/"}
                 // method: 'post',
                 //data: {'param': 'pampam'}
+                console.log(url: value);
                 success: function (data) {
                     $('.basket_list').html(data.result);
                     console.log('ajax done');
-                },
-            });
+                }
+            };
 
         }
         event.preventDefault();
-    });
+    });}
 
 
-    $('.basket_list').on('click', '.btn-round', function (event) {
-
-        //console.log('Привет');
-        //alert('ПРивет');
-        var target_href = event.target;
-
-        if (target_href) {
-        // Пример отправки ajax запроса
-            $.ajax({
-                url: "/basket/ajaxdelete/" + target_href.name + "/",
-                // method: 'post',
-                //data: {'param': 'pampam'}
-                success: function (data) {
-                    $('.basket_list').html(data['result']);
-                    console.log('ajax done');
-                },
-            });
-
-        }
-        event.preventDefault();
-    });
-}
+//     $('.basket_list').on('click', '.btn-round', function (event) {
+//
+//         //console.log('Привет');
+//         //alert('ПРивет');
+//         var target_href = event.target;
+//
+//         if (target_href) {
+//         // Пример отправки ajax запроса
+//             $.ajax({
+//                 url: "/basket/ajaxdelete/" + target_href.name + "/",
+//                 // method: 'post',
+//                 //data: {'param': 'pampam'}
+//                 success: function (data) {
+//                     $('.basket_list').html(data['result']);
+//                     console.log('ajax done');
+//                 },
+//             });
+//
+//         }
+//         event.preventDefault();
+//     });
+// }

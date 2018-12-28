@@ -62,7 +62,8 @@ def basket_edit(request, pk, quantity):
             'basket_items': basket_items,
         }
 
-        result = render_to_string('basketapp/includes/inc_basket_list.html', content)
+        # result = render_to_string('basketapp/includes/inc_basket_list.html', content)
+        result = render_to_string('basketapp/basket.html', content)
 
         return JsonResponse({'result': result})
     else:
@@ -80,7 +81,7 @@ def basket_ajaxdelete(request, pk):
             'basket_items': basket_items,
         }
 
-        result = render_to_string('basketapp/includes/inc_basket_list.html', content)
+        result = render_to_string('basketapp/basket.html', content)
 
         return JsonResponse({'result': result})
     else:
